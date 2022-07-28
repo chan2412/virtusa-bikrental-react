@@ -1,0 +1,32 @@
+.DisplayProfile-Nav {
+    margin: 20px 0px 0px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ProfilePic-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    width: 300;
+    height: 300;
+    object-fit: "contain";
+}
+.details{
+   display: flex;
+   justify-content: center;
+}
+.displayprofiletable {
+    border-collapse: collapse;
+    width: 60%;
+  }
+  
+  td, th {
+    border: 0px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
