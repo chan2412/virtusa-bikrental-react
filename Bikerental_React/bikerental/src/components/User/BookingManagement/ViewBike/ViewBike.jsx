@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { Avatar, Button, ListItemText, Typography } from '@mui/material';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import { Avatar,Button,ListItemText,Typography } from '@mui/material';
-import "./ViewBike.css";
-import {  Link, useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import AdminHeader from '../../../Header/Header';
+import "./ViewBike.css";
 const breadcrumbs = [
     <Typography key="1" color="inherit">
       User

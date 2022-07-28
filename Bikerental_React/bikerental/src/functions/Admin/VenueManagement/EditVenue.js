@@ -10,12 +10,12 @@ async function editVenue(venueDetails) {
         venueCapacity: venueDetails.venueCapacity
     }
     console.log(data);
-    await ApiClient.post('/admin/editVenue/'+venueDetails.venueId, data)
-    .then(response => {
-        if(response.status === 200){
-            return true
-        }
-    })
+    await ApiClient.post('/admin/editVenue/' + venueDetails.venueId, data)
+        .then(response => {
+            if (response.status === 200) {
+                return true
+            }
+        })
 }
 
-export { editVenue }
+export { editVenue };

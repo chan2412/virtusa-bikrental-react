@@ -18,4 +18,4 @@ async function fetchBookings() {
     return bookings
 }
 
-export { fetchBookings }
+export { fetchBookings };

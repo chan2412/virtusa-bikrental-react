@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import './EditUserProfile.css'
-import Header from '../../../Header/Header'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Alert } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { useStateValue } from '../../../../functions/Utils/StateProvider';
+import Typography from '@mui/material/Typography';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { editUserProfile } from '../../../../functions/User/ProfileManagement/EditUserProfile';
-import { AsyncStorage } from 'AsyncStorage';
-import { Alert } from '@mui/material';
+import { useStateValue } from '../../../../functions/Utils/StateProvider';
+import Header from '../../../Header/Header';
+import './EditUserProfile.css';
 
 function EditUserProfile() {
 

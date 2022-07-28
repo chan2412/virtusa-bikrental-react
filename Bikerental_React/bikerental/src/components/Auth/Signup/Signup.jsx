@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './Signup.css'
-import { useNavigate } from "react-router-dom";
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
-import { validateFields, saveAdmin  } from '../../../functions/Auth/Signup';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { saveAdmin, validateFields } from '../../../functions/Auth/Signup';
+import './Signup.css';
 
 
 function Signup() {

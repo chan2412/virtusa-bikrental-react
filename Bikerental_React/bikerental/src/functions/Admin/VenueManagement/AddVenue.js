@@ -18,4 +18,4 @@ async function addVenue(venueDetails) {
     })
 }
 
-export { addVenue }
+export { addVenue };

@@ -18,4 +18,4 @@ async function fetchProfile() {
     }
 
 
-export { fetchProfile }
+export { fetchProfile };

@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import './Login.css';
-import { useStateValue } from "../../../functions/Utils/StateProvider";
-import { actionTypes } from "../../../functions/Utils/Reducer";
-import { useNavigate } from "react-router-dom";
-import TextField from '@mui/material/TextField';
+import { MenuItem, Select } from '@mui/material';
+import Alert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
+import FormControl from '@mui/material/FormControl';
+import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { validateUser } from '../../../functions/Auth/Login';
-import Alert from '@mui/material/Alert';
-import { MenuItem, Select } from '@mui/material';
 import { setAuthorizationHeader } from '../../../functions/Utils/ApiClient';
+import { actionTypes } from "../../../functions/Utils/Reducer";
+import { useStateValue } from "../../../functions/Utils/StateProvider";
+import './Login.css';
 
 function Login() {
 

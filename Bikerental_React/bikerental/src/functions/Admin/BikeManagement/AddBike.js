@@ -31,4 +31,4 @@ async function addBike(bikeDetails) {
    
 }
 
-export { addBike }
+export { addBike };

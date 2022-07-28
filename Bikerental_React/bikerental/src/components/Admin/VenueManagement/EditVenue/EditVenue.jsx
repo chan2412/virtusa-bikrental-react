@@ -1,10 +1,10 @@
 import { Alert, Avatar, Breadcrumbs, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Link, TextField, Typography } from '@mui/material';
 
-import { useLocation, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
-import './EditVenue.css';
-import Header from '../../../Header/Header';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { editVenue } from '../../../../functions/Admin/VenueManagement/EditVenue';
+import Header from '../../../Header/Header';
+import './EditVenue.css';
 export default function EditVenue() {
   const stater = useLocation();
   const [venue, setVenue] = useState((stater.state.user));

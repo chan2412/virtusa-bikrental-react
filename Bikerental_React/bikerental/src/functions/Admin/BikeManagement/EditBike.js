@@ -20,4 +20,4 @@ console.log(data);
     })
 }
 
-export { editBike }
+export { editBike };

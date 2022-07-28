@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import './EditBike.css'
-import Header from '../../../Header/Header'
-import { useLocation, useNavigate } from 'react-router-dom'
 import Avatar from '@mui/material/Avatar';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { editBike } from '../../../../functions/Admin/BikeManagement/EditBike';
+import Header from '../../../Header/Header';
+import './EditBike.css';
 
 function EditBike() {
 

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import AdminHeader from '../../../Header/Header'
+import { Avatar, Button, ListItemText, Typography } from '@mui/material';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import { Avatar,Button,ListItemText,Typography } from '@mui/material';
-import "./DisplayProfile.css"
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { fetchProfile } from '../../../../functions/Admin/ProfileManagement/DisplayProfile';
-import { Navigate, useNavigate } from 'react-router-dom';
+import AdminHeader from '../../../Header/Header';
+import "./DisplayProfile.css";
 const breadcrumbs = [
     <Typography key="1" color="inherit">
         Admin

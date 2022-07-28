@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import './AddBike.css'
-import Header from '../../../Header/Header'
-import { useNavigate } from 'react-router-dom'
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { addBike } from '../../../../functions/Admin/BikeManagement/AddBike';
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import Header from '../../../Header/Header';
+import './AddBike.css';
 
 function AddBike() {
 

@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import './Header.css';
-import { resetAuthorizationHeader } from '../../functions/Utils/ApiClient';
-import { useStateValue } from '../../functions/Utils/StateProvider';
-import { actionTypes } from '../../functions/Utils/Reducer';
-import { useNavigate } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { AsyncStorage } from 'AsyncStorage';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { resetAuthorizationHeader } from '../../functions/Utils/ApiClient';
+import { actionTypes } from '../../functions/Utils/Reducer';
+import { useStateValue } from '../../functions/Utils/StateProvider';
+import './Header.css';
 
 function AdminHeader({ highlight}) {
 

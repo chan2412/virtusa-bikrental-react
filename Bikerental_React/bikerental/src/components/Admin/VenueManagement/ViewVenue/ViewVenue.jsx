@@ -1,16 +1,15 @@
-import { Breadcrumbs, CardActionArea,  Dialog,  DialogActions,  DialogContent,  DialogContentText,  DialogTitle,  IconButton,  TextField, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Breadcrumbs, CardActionArea, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, IconButton, TextField, Typography } from '@mui/material';
 import Avatar from "@mui/material/Avatar";
-import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
+import CardActions from '@mui/material/CardActions';
 import CardContent from "@mui/material/CardContent";
-import { Grid } from "@mui/material";
+import CardMedia from "@mui/material/CardMedia";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { deleteVenue, fetchVenues } from '../../../../functions/Admin/VenueManagement/DisplayVenue';
 import Header from '../../../Header/Header';
 import "./ViewVenue.css";
-import { deleteVenue, fetchVenues } from '../../../../functions/Admin/VenueManagement/DisplayVenue';
 var backuparr = [];
 export default function ViewVenue() {
     const [venue, setVenue] = useState({

@@ -27,4 +27,4 @@ async function deleteBike(bikeID) {
     })
 }
 
-export { fetchBikes, deleteBike }
+export { fetchBikes, deleteBike };

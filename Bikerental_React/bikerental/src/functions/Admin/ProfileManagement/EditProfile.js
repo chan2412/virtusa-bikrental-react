@@ -26,4 +26,4 @@ async function editProfile(profileDetails) {
             return x;
 }
 
-export { editProfile }
+export { editProfile };
