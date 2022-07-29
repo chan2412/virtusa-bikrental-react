@@ -131,6 +131,7 @@ function ViewCompany() {
   };
 
   const handleViewBikes = (bike) => {
+    console.log(bike)
     navigate('/user/viewBike', { state: {bike: bike,company:company } })
   }
   useEffect(() => {

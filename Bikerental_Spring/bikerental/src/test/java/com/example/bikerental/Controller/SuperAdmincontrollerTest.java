@@ -15,13 +15,13 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.example.bikerental.Models.Adminmodel;
-import com.example.bikerental.Models.Bookingmodel;
+import com.example.bikerental.controller.SuperAdmincontroller;
+import com.example.bikerental.models.Adminmodel;
+import com.example.bikerental.models.Bookingmodel;
 import com.example.bikerental.services.Adminservice;
 import com.example.bikerental.services.Bookingservices;
 import com.example.bikerental.services.SuperAdminservice;
@@ -33,10 +33,6 @@ class SuperAdmincontrollerTest {
 	Logger logger = LogManager.getLogger(SuperAdmincontrollerTest.class);
 	@InjectMocks
 	SuperAdmincontroller superadmincontroller;
-	@InjectMocks
-	Admincontroller admincontroller;
-	@InjectMocks
-	Bookingcontroller bookingcontroller;
 	@Mock
 	Bookingservices bookingservices;
 	@Mock
@@ -53,10 +49,10 @@ class SuperAdmincontrollerTest {
 		admins.add(RECORD_1);
 		admins.add(RECORD_2);
 		when(adminservice.getAllAdmins()).thenReturn(admins);
-		ResponseEntity<List<Adminmodel>> result=admincontroller.getAdmins();
-	    assertThat(result.getBody()).contains(RECORD_1).hasSize(2);
-	    assertThat(result.getBody().get(0)).isEqualTo(RECORD_1);
-	    assertThat(result.getBody().get(1)).isEqualTo(RECORD_2);
+		List<Adminmodel> result=superadmincontroller.getAllAdmins();
+	    assertThat(result).contains(RECORD_1).hasSize(2);
+	    assertThat(result.get(0)).isEqualTo(RECORD_1);
+	    assertThat(result.get(1)).isEqualTo(RECORD_2);
 	}
 
 	@Test

@@ -9,10 +9,10 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.bikerental.Models.BikeData;
-import com.example.bikerental.Models.Bikemodel;
-import com.example.bikerental.Repositories.AdminRepository;
-import com.example.bikerental.Repositories.BikeRepository;
+import com.example.bikerental.models.BikeData;
+import com.example.bikerental.models.Bikemodel;
+import com.example.bikerental.repositories.AdminRepository;
+import com.example.bikerental.repositories.BikeRepository;
 
 @Service
 public class Bikeservice {
@@ -21,7 +21,7 @@ public class Bikeservice {
 	private BikeRepository bikeRepository;
 	@Autowired
 	private AdminRepository adminRepository;
-	String invalidBikeString = "Bike Not Exists";
+	String invalidBikeString = "Bike Not Exist";
 
 	public List<Bikemodel> getAllbikes() {
 		List<Bikemodel> bikes = new ArrayList<>();
@@ -37,17 +37,17 @@ public class Bikeservice {
 		return bikesbyid;
 	}
 
-	public Bikemodel getBikeById(String bikeid) {
+	public Object getBikeById(String bikeid) {
 		Optional<Bikemodel> value = bikeRepository.findById(bikeid);
 		if (value.isPresent()) {
 			return value.get();
 		}
-		return null;
+		return "Bike Not Exist";
 	}
 
 	public boolean bikeexist(BikeData newbike) {
 		boolean bool;
-		if ((bikeRepository.existsById(newbike.getBikeid())) || (bikeRepository.existsByBikeno(newbike.getBikeno()))) {
+		if ((bikeRepository.existsById(newbike.getBikeid())) && (bikeRepository.existsByBikeno(newbike.getBikeno()))) {
 			bool = true;
 		} else {
 			bool = false;
@@ -56,19 +56,16 @@ public class Bikeservice {
 	}
 
 	public boolean bikeexistbyId(String id) {
-		boolean bool;
+		boolean bool=false;
 		if (bikeRepository.existsById(id)) {
 			bool = true;
-		} else {
-			bool = false;
-		}
+		} 
 		return bool;
 	}
 
 	public String addbike(BikeData data) {
 		Bikemodel newbike = new Bikemodel(data);
-
-		if (!bikeexist(data)) {
+		if (!bikeRepository.existsByBikeno(data.getBikeno())) {
 			String email = newbike.getAdminid();
 			if ((adminRepository.existsByEmail(email))) {
 				bikeRepository.save(newbike);
@@ -79,23 +76,20 @@ public class Bikeservice {
 			}
 		} else {
 			logger.error("Trying to add a bike But already exist");
-			return "Bike Already Exists";
+			return "Bike Already Exist";
 		}
 
 	}
 
 	public String bookbike(String bikeid) {
-		if (bikeRepository.existsById(bikeid)) {
 			Optional<Bikemodel> value = bikeRepository.findById(bikeid);
 			if (value.isPresent()) {
 				Bikemodel bikemodel = value.get();
 				bikemodel.setStatus("not available");
 				bikeRepository.save(bikemodel);
 				return "Bike Booked Successfully";
-			} else {
-				return invalidBikeString;
 			}
-		} else {
+			else {
 			return invalidBikeString;
 		}
 	}

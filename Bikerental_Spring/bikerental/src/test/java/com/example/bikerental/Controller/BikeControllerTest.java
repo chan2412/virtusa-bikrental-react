@@ -19,8 +19,9 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.example.bikerental.Models.BikeData;
-import com.example.bikerental.Models.Bikemodel;
+import com.example.bikerental.controller.BikeController;
+import com.example.bikerental.models.BikeData;
+import com.example.bikerental.models.Bikemodel;
 import com.example.bikerental.services.Bikeservice;
 
 @SuppressWarnings("deprecation")
@@ -56,7 +57,7 @@ class BikeControllerTest {
 		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 		Bikemodel bike1=new Bikemodel("abcd","TN 00 AB 1111", "admin@gmail.com", "available","https://picsum.photos/200/200","20", "R15", "bike");
 		when(bikeservice.getBikeById(bike1.getBikeid())).thenReturn(bike1);
-		Bikemodel res=bikecontroller.getbike("abcd");
+		Object res=bikecontroller.getbike("abcd");
 		assertThat(res).isEqualTo(bike1);
 	}
 

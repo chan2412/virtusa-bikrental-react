@@ -11,12 +11,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.bikerental.Models.Adminmodel;
-import com.example.bikerental.Models.SuperAdminmodel;
-import com.example.bikerental.Models.Usermodel;
-import com.example.bikerental.Repositories.AdminRepository;
-import com.example.bikerental.Repositories.SuperAdminRepository;
-import com.example.bikerental.Repositories.UserRepository;
+import com.example.bikerental.models.Adminmodel;
+import com.example.bikerental.models.SuperAdminmodel;
+import com.example.bikerental.models.Usermodel;
+import com.example.bikerental.repositories.AdminRepository;
+import com.example.bikerental.repositories.SuperAdminRepository;
+import com.example.bikerental.repositories.UserRepository;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService{

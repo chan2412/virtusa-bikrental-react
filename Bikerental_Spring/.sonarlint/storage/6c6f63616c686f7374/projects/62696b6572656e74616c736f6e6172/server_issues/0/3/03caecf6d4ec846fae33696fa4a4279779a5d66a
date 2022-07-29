@@ -1,0 +1,5 @@
+Äcommon-java"DuplicatedBlocks:MAJORROPENh €ÌÍ¤0r
+CODE_SMELLzAYJJszQM8j8FQ-Od3RaS‚l
+<src/main/java/com/example/bikerental/Models/BookingData.java,2 duplicated blocks of code must be removed.†java"S120:MINORROPENZ 269565a51aefcc0ab58432836515f8abh €ÌÍ¤0r
+CODE_SMELLzAYJJszQM8j8FQ-Od3RaT‚ž
+<src/main/java/com/example/bikerental/Models/BookingData.javaZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.

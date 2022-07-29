@@ -17,8 +17,9 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.example.bikerental.Models.Userdata;
-import com.example.bikerental.Models.Usermodel;
+import com.example.bikerental.controller.Usercontroller;
+import com.example.bikerental.models.Userdata;
+import com.example.bikerental.models.Usermodel;
 import com.example.bikerental.services.SuperAdminservice;
 import com.example.bikerental.services.Userservices;
 

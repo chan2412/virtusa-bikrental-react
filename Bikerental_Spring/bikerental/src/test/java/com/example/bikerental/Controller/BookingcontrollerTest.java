@@ -19,8 +19,9 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.example.bikerental.Models.BookingData;
-import com.example.bikerental.Models.Bookingmodel;
+import com.example.bikerental.controller.Bookingcontroller;
+import com.example.bikerental.models.BookingData;
+import com.example.bikerental.models.Bookingmodel;
 import com.example.bikerental.services.Bookingservices;
 
 @SuppressWarnings("deprecation")
@@ -70,8 +71,8 @@ class BookingcontrollerTest {
 		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 		Bookingmodel booking1=new Bookingmodel("1", "user", "r15", "admin@gmail.com", "company","1", "20", "2", "400");
 		when(bookingservices.getBooking("1")).thenReturn(booking1);
-		Bookingmodel result=bookingcontroller.getBooking("1");
-	    assertThat(result.getBikemodel()).isEqualTo(booking1.getBikemodel());
+		Object result=bookingcontroller.getBooking("1");
+	    assertThat(result).isEqualTo(booking1);
 	}
 
 	@Test

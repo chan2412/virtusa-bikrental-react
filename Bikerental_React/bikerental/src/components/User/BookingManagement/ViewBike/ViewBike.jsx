@@ -1,6 +1,7 @@
 import { Avatar, Button, ListItemText, Typography } from '@mui/material';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import React from 'react';
+import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import AdminHeader from '../../../Header/Header';
 import "./ViewBike.css";
@@ -27,6 +28,9 @@ export default function ViewBike() {
     //         setBike(fetchedBike)
     //     })
     //   }, [bike])
+    useEffect(()=>{
+console.log(bike);
+    },[]);
       const handleBookBike = () => {
         navigate('/user/bookBike', { state: { bike: bike,company:company } })
       }
