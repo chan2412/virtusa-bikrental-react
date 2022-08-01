@@ -15,9 +15,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.example.bikerental.controller.BikeController;
 import com.example.bikerental.models.BikeData;
@@ -28,7 +25,7 @@ import com.example.bikerental.services.Bikeservice;
 @ExtendWith(MockitoExtension.class)
 @RunWith(JUnitPlatform.class)
 class BikeControllerTest {
-	Logger logger = LogManager.getLogger(AuthcontrollerTest.class);
+	Logger logger = LogManager.getLogger(BikeControllerTest.class);
 	@InjectMocks
 	BikeController bikecontroller;
 
@@ -37,8 +34,6 @@ class BikeControllerTest {
 	
 	@Test
 	void testGetbikes() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 		List<Bikemodel> bikes= new ArrayList<>();
 		Bikemodel bike1=new Bikemodel("abcd","TN 00 AB 1111", "admin@gmail.com","available","https://picsum.photos/200/200", "20", "R15", "bike");
 		Bikemodel bike2=new Bikemodel("abce","TN 11 AB 2222", "admin1@gmail.com","available","https://picsum.photos/200/200", "15", "Activa 5G", "scooty");
@@ -53,8 +48,6 @@ class BikeControllerTest {
 
 	@Test
 	void testGetbike() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 		Bikemodel bike1=new Bikemodel("abcd","TN 00 AB 1111", "admin@gmail.com", "available","https://picsum.photos/200/200","20", "R15", "bike");
 		when(bikeservice.getBikeById(bike1.getBikeid())).thenReturn(bike1);
 		Object res=bikecontroller.getbike("abcd");
@@ -63,8 +56,7 @@ class BikeControllerTest {
 
 	@Test
 	void testGetbikesbyid() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
+		
 		Bikemodel bike1=new Bikemodel("abcd","TN 00 AB 1111", "admin@gmail.com","available","https://picsum.photos/200/200", "20", "R15", "bike");
 		List<Bikemodel> bikelist=new ArrayList<>();
 		bikelist.add(bike1);
@@ -75,9 +67,7 @@ class BikeControllerTest {
 
 	@Test
 	void testSavebike() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
-		BikeData bike1=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","available","https://picsum.photos/200/200", "20", "R15", "bike");
+		BikeData bike1=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","https://picsum.photos/200/200", "20", "R15", "bike");
 		when(bikeservice.addbike(bike1)).thenReturn("Bike Added Successfully");
 		String res=bikecontroller.savebike(bike1);
 		assertThat(res).isEqualTo("Bike Added Successfully");
@@ -85,8 +75,6 @@ class BikeControllerTest {
 
 	@Test
 	void testBookbike() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 		when(bikeservice.bookbike("abcd")).thenReturn("Bike Booked Successfully");
 		String res=bikecontroller.bookbike("abcd");
 		assertThat(res).isEqualTo("Bike Booked Successfully");
@@ -94,9 +82,7 @@ class BikeControllerTest {
 
 	@Test
 	void testEditbike() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
-		BikeData bike1=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","available","https://picsum.photos/200/200", "20", "R15", "bike");
+		BikeData bike1=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","https://picsum.photos/200/200", "20", "R15", "bike");
 		when(bikeservice.editbike(bike1)).thenReturn("Bike Updated Successfully");
 		String res=bikecontroller.editbike(bike1);
 		assertThat(res).isEqualTo("Bike Updated Successfully");
@@ -104,8 +90,6 @@ class BikeControllerTest {
 
 	@Test
 	void testDeletebike() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 		when(bikeservice.deletebike("abcd")).thenReturn("Bike Deleted Successfully");
 		String res=bikecontroller.deletebike("abcd");
 		assertThat(res).isEqualTo("Bike Deleted Successfully");

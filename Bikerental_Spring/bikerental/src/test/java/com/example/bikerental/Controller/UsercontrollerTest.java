@@ -13,31 +13,24 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.example.bikerental.controller.Usercontroller;
 import com.example.bikerental.models.Userdata;
 import com.example.bikerental.models.Usermodel;
-import com.example.bikerental.services.SuperAdminservice;
 import com.example.bikerental.services.Userservices;
 
 @SuppressWarnings("deprecation")
 @ExtendWith(MockitoExtension.class)
 @RunWith(JUnitPlatform.class)
 class UsercontrollerTest {
-	Logger logger = LogManager.getLogger(SuperAdminservice.class);
+	Logger logger = LogManager.getLogger(UsercontrollerTest.class);
 	@InjectMocks
     private Usercontroller usercontroller;
 	
 	@Mock
 	Userservices userservices;
-	
 	@Test
 	void testUpdateuser() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 		Userdata RECORD_1 = new Userdata("user@gmail.com", "password","user", "1234567890", 25,"user");	
 		when(userservices.edituser(RECORD_1)).thenReturn("User Updated Successfully");
 		ResponseEntity<String> result=usercontroller.updateuser(RECORD_1);
@@ -46,8 +39,6 @@ class UsercontrollerTest {
 
 	@Test
 	void testGetUser() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 		Usermodel RECORD_1 = new Usermodel("user@gmail.com", "password","user", "1234567890", 25,"user");	
 		when(userservices.getUser("user")).thenReturn(RECORD_1);
 		Usermodel result=usercontroller.getUser("user");

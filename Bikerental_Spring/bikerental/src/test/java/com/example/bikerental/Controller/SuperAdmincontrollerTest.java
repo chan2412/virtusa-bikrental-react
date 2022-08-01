@@ -15,13 +15,11 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.example.bikerental.controller.SuperAdmincontroller;
 import com.example.bikerental.models.Adminmodel;
 import com.example.bikerental.models.Bookingmodel;
+import com.example.bikerental.models.SuperAdminmodel;
 import com.example.bikerental.services.Adminservice;
 import com.example.bikerental.services.Bookingservices;
 import com.example.bikerental.services.SuperAdminservice;
@@ -40,9 +38,13 @@ class SuperAdmincontrollerTest {
 	@Mock
 	Adminservice adminservice;
 	@Test
+	void superadminTest(){
+		SuperAdminmodel superAdminmodel=new SuperAdminmodel("superadmin@gmail.com", "superadmin", "superadmin");
+		assertThat(superAdminmodel.getEmail()).isEqualTo("superadmin@gmail.com");
+		assertThat(superAdminmodel.getPassword()).isEqualTo("superadmin");
+	}
+	@Test
 	void testGetAllAdmins() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 		List<Adminmodel> admins= new ArrayList<>();
 		Adminmodel RECORD_1 = new Adminmodel("abcd","123@gmail.com", "password", "1234567890", "Cebu Philippines","cebu","admin","https://picsum.photos/200/200","123,asdf",0);
 	    Adminmodel RECORD_2 = new Adminmodel("abce","1234@gmail.com", "password", "1234567891", "Cebu Philippines","cebu","admin","https://picsum.photos/200/200","123,asdg",0);
@@ -57,8 +59,6 @@ class SuperAdmincontrollerTest {
 
 	@Test
 	void testGetAllBookings() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 		List<Bookingmodel> bookings= new ArrayList<>();
 		Bookingmodel booking1=new Bookingmodel("1", "user", "r15", "admin@gmail.com", "company","1", "20", "2", "400");
 		Bookingmodel booking2=new Bookingmodel("2", "user1", "activa 5g", "admin@gmail.com", "company","2", "15", "2", "300");
@@ -73,8 +73,6 @@ class SuperAdmincontrollerTest {
 
 	@Test
 	void testDeleteAdmin() {
-		MockHttpServletRequest request =new MockHttpServletRequest();
-		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 		when(superAdminservice.deleteAdmin("admin@gmail.com")).thenReturn("Admin Deleted Successfully");
 		String result=superadmincontroller.deleteAdmin("admin@gmail.com");
 	    assertThat(result).isEqualTo("Admin Deleted Successfully");

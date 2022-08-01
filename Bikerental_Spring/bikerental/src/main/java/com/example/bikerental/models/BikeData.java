@@ -13,13 +13,13 @@ public class BikeData {
 	private String price;
 	private String model;
 	private String type;
-	public BikeData(String bikeid, String bikeno, String adminid, String status, String bikeimageurl, String price,
+	public BikeData(String bikeid, String bikeno, String adminid,  String bikeimageurl, String price,
 			String model, String type) {
 		super();
 		this.bikeid = bikeid;
 		this.bikeno = bikeno;
 		this.adminid = adminid;
-		this.status = status;
+		this.status = "available";
 		this.bikeimageurl = bikeimageurl;
 		this.price = price;
 		this.model = model;

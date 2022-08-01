@@ -29,18 +29,16 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors()
-		.and().csrf().ignoringAntMatchers("/authenticate","/admin/register","/user/register")
+//		.and().csrf().ignoringAntMatchers("/authenticate","/admin/register","/user/register")
 		.and().authorizeRequests().antMatchers("/authenticate","/admin/register","/user/register").permitAll().anyRequest().authenticated()
 	    .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//		http.cors().and().authorizeRequests().antMatchers("/authenticate","/admin/register","/user/register").permitAll().anyRequest().authenticated()
-//		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    @Bean
+    BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
 	@Override
 	@Bean

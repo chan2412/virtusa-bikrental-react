@@ -77,7 +77,7 @@ class BikeserviceTest {
 
 	@Test
 	void testBikeexist() {
-		BikeData bike=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","available","https://picsum.photos/200/200", "20", "R15", "bike");
+		BikeData bike=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","https://picsum.photos/200/200", "20", "R15", "bike");
 		given(bikeRepository.existsById("abcd")).willReturn(true);
 		given(bikeRepository.existsByBikeno("TN 00 AB 1111")).willReturn(true);
 		Object res=bikeservice.bikeexist(bike);
@@ -85,7 +85,7 @@ class BikeserviceTest {
 	}
 	@Test
 	void testBikeexist1() {
-		BikeData bike=new BikeData("abcd","TN 00 AB 1112", "admin1@gmail.com","available","https://picsum.photos/200/200", "20", "R15", "bike");
+		BikeData bike=new BikeData("abcd","TN 00 AB 1112", "admin1@gmail.com","https://picsum.photos/200/200", "20", "R15", "bike");
 		Object res=bikeservice.bikeexist(bike);
 		assertThat(res).isEqualTo(false);
 	}
@@ -101,20 +101,20 @@ class BikeserviceTest {
 
 	@Test
 	void testAddbike() {
-		BikeData bike=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","available","https://picsum.photos/200/200", "20", "R15", "bike");
+		BikeData bike=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","https://picsum.photos/200/200", "20", "R15", "bike");
 		given(adminRepository.existsByEmail(bike.getAdminid())).willReturn(true);
 		String result=bikeservice.addbike(bike);
 		assertThat(result).isEqualTo("Bike Added Successfully");
 	}
 	@Test
 	void testAddbike1() {
-		BikeData bike=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","available","https://picsum.photos/200/200", "20", "R15", "bike");
+		BikeData bike=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","https://picsum.photos/200/200", "20", "R15", "bike");
 		String result=bikeservice.addbike(bike);
 		assertThat(result).isEqualTo("Admin Not Exist");
 	}
 	@Test
 	void testAddbike2() {
-		BikeData bike=new BikeData("abcd","TN 00 AB 1112", "admin@gmail.com","available","https://picsum.photos/200/200", "20", "R15", "bike");
+		BikeData bike=new BikeData("abcd","TN 00 AB 1112", "admin@gmail.com","https://picsum.photos/200/200", "20", "R15", "bike");
 		given(bikeRepository.existsByBikeno(bike.getBikeno())).willReturn(true);
 		String result=bikeservice.addbike(bike);
 		assertThat(result).isEqualTo("Bike Already Exist");
@@ -135,14 +135,14 @@ class BikeserviceTest {
 
 	@Test
 	void testEditbike() {
-		BikeData bike=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","available","https://picsum.photos/200/200", "20", "R15", "bike");
+		BikeData bike=new BikeData("abcd","TN 00 AB 1111", "admin@gmail.com","https://picsum.photos/200/200", "20", "R15", "bike");
 		given(bikeRepository.existsById("abcd")).willReturn(true);
 		String result=bikeservice.editbike(bike);
 		assertThat(result).isEqualTo("Bike Updated Successfully");
 	}
 	@Test
 	void testEditbike1() {
-		BikeData bike=new BikeData("1234","TN 00 AB 1111", "admin@gmail.com","available","https://picsum.photos/200/200", "20", "R15", "bike");
+		BikeData bike=new BikeData("1234","TN 00 AB 1111", "admin@gmail.com","https://picsum.photos/200/200", "20", "R15", "bike");
 		String result=bikeservice.editbike(bike);
 		assertThat(result).isEqualTo("Bike Not Exist");
 	}

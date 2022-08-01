@@ -1,7 +1,0 @@
-¡common-java"DuplicatedBlocks:MAJORROPENhÿ…‡•§0r
-CODE_SMELLzAYJJszQY8j8FQ-Od3RaUÇi
-9src/main/java/com/example/bikerental/Models/BikeData.java,1 duplicated blocks of code must be removed.Íjava"S107:MAJORROPENZ bb1017d041d60401ec1a4fc43ef9936ehÿ…‡•§0r
-CODE_SMELLzAYJJszQY8j8FQ-Od3RaVÇÇ
-9src/main/java/com/example/bikerental/Models/BikeData.javaAConstructor has 8 parameters, which is greater than 7 authorized.Éjava"S120:MINORROPENZ 269565a51aefcc0ab58432836515f8abhÿ…‡•§0r
-CODE_SMELLzAYJJszQY8j8FQ-Od3RaWÇõ
-9src/main/java/com/example/bikerental/Models/BikeData.javaZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.
